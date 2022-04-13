@@ -7,6 +7,7 @@ class ConsoleLogger extends Logger{
 }
 
 TUTAJ TRAIT PEŁNI ROLE INTERFEJSU
+--------------------------------------------------------------
 
 triat ConsoleLogger extends Logger{
     def log(msg: String) = ....
@@ -17,8 +18,10 @@ class Person extends ConsoleLogger{
 }
 TAKI TRAIT MA IMPLEMENTACJE SWOJĄ :)
 CO WAZNE PERSON DZIEDZICZY PO ANYVAL BO ConsoleLogger to INTERFEJSU
+-----------------------------------------------------------------
 
-wSZYSTKO CO Z TRAITA ZOSTAJE KOPIOWANE PRZY KOMPILACJI JAKO METODA PERSON
+WSZYSTKO CO Z TRAITA ZOSTAJE KOPIOWANE PRZY KOMPILACJI JAKO METODA PERSON
+------------------------------------------------------------------
 
 trait TimestampLogger extends Logger{
     def log()
@@ -35,6 +38,7 @@ class Person extends ConsoleLogger with TimestampLogger{
 }
 
 TERAZ DZIALA TO TAK, ZE NAJPIERD log() z TimestampLogger która wywołując super() przneosi się do ConsoleLoggera
+------------------------------------------------------------------------------
 
 class Person extends ConsoleLogger with TimestampLogger with ShortLogger{ 
     log("JAKIS TEKS")
@@ -70,3 +74,29 @@ inne nadpisywanie potrzebne override
 
 ------------------------------------------------------------
 Traity nie mogą mieć elementow konstruktora
+
+------------------------------------------------------------
+package bla.bla.bla
+class M
+
+Teraz klasa M widzi wszystko z pakietu bla ale nie widzi podrzędnych bla
+------------------------------------------------------------
+
+import java.util.Math._ 
+teraz importujemy wszystko z Math
+
+import java.util.List=>javaList
+Alias dla List gdy mamy np dwa importy z tą samą nazwą
+-----------------------------------------------------------
+package object p1 {
+    def converToHex(...) = {}
+}
+
+class A{
+    import p1._
+    converToHex(...)
+}
+
+Import dla klasy też zadziała
+-----------------------------------------------------------
+Enumeracja od następnych zajęć
