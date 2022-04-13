@@ -1,0 +1,72 @@
+trait Logger {
+    def log(msg: String)
+}
+
+class ConsoleLogger extends Logger{
+    def log(msg: String) = ....
+}
+
+TUTAJ TRAIT PEŁNI ROLE INTERFEJSU
+
+triat ConsoleLogger extends Logger{
+    def log(msg: String) = ....
+}
+
+class Person extends ConsoleLogger{ 
+    log("JAKIS TEKS")
+}
+TAKI TRAIT MA IMPLEMENTACJE SWOJĄ :)
+CO WAZNE PERSON DZIEDZICZY PO ANYVAL BO ConsoleLogger to INTERFEJSU
+
+wSZYSTKO CO Z TRAITA ZOSTAJE KOPIOWANE PRZY KOMPILACJI JAKO METODA PERSON
+
+trait TimestampLogger extends Logger{
+    def log()
+        super.log(timestamp+msg)
+}
+
+trait ShortLogger extends Logger{
+    def log()
+        super.log(msg[0:20]) //tak pythonowo napisalem sobie
+}
+
+class Person extends ConsoleLogger with TimestampLogger{ 
+    log("JAKIS TEKS")
+}
+
+TERAZ DZIALA TO TAK, ZE NAJPIERD log() z TimestampLogger która wywołując super() przneosi się do ConsoleLoggera
+
+class Person extends ConsoleLogger with TimestampLogger with ShortLogger{ 
+    log("JAKIS TEKS")
+}
+
+            Logger
+
+ConsoleLogger  TimestampLogger   ShortLogger
+
+            Person
+
+
+
+LECI OD KOŃCA! OSTATNI WITH JEST PIERWSZY
+
+Logger
+ConsoleLogger
+TimestampLogger
+ShortLogger
+Person
+
+Powyżej zdefiniowana hierarchia
+
+------------------------------------------------------------
+
+Person p = new Person(...) extends <jakis trait>
+Teraz tylko ten obiekt rozszerza TRAITA
+
+----------------------------------------------------------
+
+nadpisywanie metody abstrakcyjnej tak jak w loggerach wyżej jest okej
+inne nadpisywanie potrzebne override
+
+------------------------------------------------------------
+Traity nie mogą mieć elementow konstruktora
