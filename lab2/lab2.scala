@@ -56,3 +56,4 @@ Zrobienie class <nazwa> private (paramterty) sprawia, że konstruktor jest dost�
 
 KARTKÓWKA DO 8
 */
+
