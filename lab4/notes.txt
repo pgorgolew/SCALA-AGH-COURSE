@@ -1,0 +1,31 @@
+paterrn matching w scali
+
+switch po day, nie trzeba breaka
+jak nie znajdzie zadnego matcha to wywali błąd
+
+mozemy przpisac tutaj jakas wartosc bo jest wyrazeniem
+day match {
+    case Mon => ...
+    case Tue => ...
+    case _   => ...
+}
+
+inne opcje
+jakies ifowanie i przypiywanie
+x match {
+    case 0 => ...
+    case 1 => ...
+    //case i => print(i) //mozmey zrobic tu kod uzywajac tego i, jest to dopasowanie i przypisanie 'i' jako x
+    case i if i>0 => ...
+    case _ => ...
+}
+
+typowanie
+x match {
+    case i: Int => i
+    case s: Str => ...
+    case _: BigInt => ... //tak tez mozna, tylko wtedy nie uzyjemy tej wartosci do isntrukcji
+    case _ => ...
+}
+
+OGARNIJ ZAD 8, PRZEJRZYJ DO 11
